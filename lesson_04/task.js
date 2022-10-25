@@ -16,16 +16,28 @@ if (rainResult >= 1 ) {
 
 //Урок 4 (задание №3)
 {
-    const scoreMath = prompt('Введите кол-во баллов по математике:')
-    const scoreRu = prompt('Введите кол-во баллов по русскому языку:')
-    const scoreInf = prompt('Введите кол-во баллов по информатике: ')
-
-    const scoreAll = scoreMath + scoreRu + scoreInf
+    const scoreMath = prompt('Введите кол-во баллов по математике:');
+    const scoreRu = prompt('Введите кол-во баллов по русскому языку:');
+    const scoreInf = prompt('Введите кол-во баллов по информатике: ');
+;
+    const scoreAll = scoreMath + scoreRu + scoreInf;
 
     if (scoreAll >= 265){
         alert('Поздравляю, вы поступили на бюджет!')
 
     } else {
         alert('К сожалению, вы не поступили на бюджет')
+    }
+}
+
+
+// Урок 4 (задание 4)
+{
+    let request = prompt('Какую сумму денег вы хотите снять?')
+    let minSum = 100;
+    if (request % minSum) {
+        alert('Ваш запрос не может быть обработан')
+    } else {
+        alert('Заберите ваши деньги')
     }
 }
