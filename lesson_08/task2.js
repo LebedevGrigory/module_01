@@ -1,6 +1,17 @@
 'use strict';
 
-const newArr = (el, n, m) => 
-    Array.from({ length: el }, () => Math.round(Math.random() * (Math.max(n, m) - Math.min(n, m) + 1)) + Math.min(n, m));
+const testArr2 = (length, n, m) => {
+    const newArr = [];
+    const arrLength = length;
+    const minNumber = n;
+    const maxNumber = m;
+    
+    
+    for ( let i = 0; i < arrLength; i += 1) {
+        const workArr = Math.round(Math.random() * (m - n) + n);
+        newArr.push(workArr);
+    }
+    return newArr;
+}
 
-console.log(newArr(4, 10, -5));
+console.log(testArr2(5, -5, 5));

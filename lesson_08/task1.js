@@ -1,7 +1,17 @@
 'use strict';
 
-const arrStart = [1,2,3];
+const testArr = (length) => {
+    const newArr = [];
+    const arrLength = length;
+    
+    
 
-const newArr = arrStart.map((el) => (Math.round(Math.random(el) * 100)) + 1);
+    for ( let i = 0; i < arrLength; i += 1) {
+        const workArr = Math.round(Math.random() * 100)
+        newArr.push(workArr);
+    }
+    return newArr
+}
 
-console.log(newArr);
+console.log(testArr(20))
+
