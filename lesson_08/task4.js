@@ -1,9 +1,15 @@
 'use strict';
-const arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 
-const changeArr = arr.filter(function (el) {
-    return !(el % 2 === 0);
-}
-    
-);
-console.log(changeArr)
+const getLeapYears = (start, end) => Array.from({ length: end - start + 1 }, (n, i) => start + i)
+  .filter(n => ((n % 100) && !(n % 4)) || !(n % 400));
+
+console.log(getLeapYears(1900, 2022));
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const strFn = (array, str) => {
     const changeArr = str;
