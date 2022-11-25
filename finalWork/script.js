@@ -13,7 +13,7 @@ const gameObj = {
         alert (`РЕЗУЛЬТАТ ИГРЫ: \n игрок: ${this.playerCount} \n компьютер: ${this.computerCount}`);
         return;
       },
-};
+};  
 
 //ставка компа
 const compGuess = () => {
@@ -31,7 +31,7 @@ const game = () => {
         let player = prompt('Загадайте колличество шариков');
         let playerChoise = +player;
         let computerChoise = compGuess();
-       
+
         if (playerChoise === 0 || playerChoise > gameObj.playerCount || isNaN(playerChoise) || playerChoise === ''){
              alert(`${playObj.gameError}`);
              return play();    
@@ -42,68 +42,41 @@ const game = () => {
             return play();
         }
    
-        if ((playerChoise % 2 === 0)  && computerChoise === 0 ){
+        if ((playerChoise % 2 === 0)  && computerChoise === 0 || playerChoise % 2 !== 0 && computerChoise === 1 ) {
             playerCount -= playerChoise;
             computerCount += playerChoise;
             playObj.computerCount = computerCount;
             playObj.playerCount = playerCount;
-            alert(`игрок загадал: ${playerChoise} \n компьютер загадал: четное число 
-            \n ${playObj.compWin}`);
-                if(computerCount === 10){
-                    alert(`КОМПЬЮТЕР ПОБЕДИЛ`);
-                    return;
-                } else {
-                    alert(`${playObj.finalScore}`);
-                    return play();
-                };
-
-        } else if (playerChoise % 2 === 0 && computerChoise === 1){
-            computerCount -= playerChoise;
-            playerCount += playerChoise;
-            playObj.playerCount = playerCount;
-            playObj.computerCount = computerCount;
-            alert(`игрок загадал: ${playerChoise} \n компьютер загадал: нечетное число 
-            \n ${playObj.playerWin}`);
-                if(playerCount === 10){
+                if(computerChoise === 0) {
+                    computerChoise = 'Четное число';
+                    } else {
+                    computerChoise = 'Нечетное число';
+                    };
+            alert(`игрок загадал: ${playerChoise} \n компьютер загадал: ${computerChoise} \n ${playObj.compWin}`);
+            playObj.finalScore;
+            if(computerCount === 10) {
+                alert(`КОМПЬЮТЕР ПОБЕДИЛ`);
+                return;
+            };                     
+            } else {
+                computerCount -= playerChoise;
+                playerCount += playerChoise;
+                playObj.playerCount = playerCount;
+                playObj.computerCount = computerCount;
+                    if(computerChoise === 0) {
+                        computerChoise = 'Четное число';
+                    } else {
+                        computerChoise = 'Нечетное число';
+                        }
+                alert(`игрок загадал: ${playerChoise} \n компьютер загадал: ${computerChoise} \n ${playObj.playerWin}`);
+                playObj.finalScore;  
+                 if(playerCount === 10){
                     alert(`ИГРОК ПОБЕДИЛ`);
-                    return;
-                } else {
-                    alert(`${playObj.finalScore}`);   
-                    return play();
-                };
-            
-
-        } else if (playerChoise % 2 !== 0 && computerChoise === 0) {
-            computerCount -= playerChoise;
-            playerCount += playerChoise;
-            playObj.playerCount = playerCount;
-            playObj.computerCount = computerCount;
-            let question = confirm('')
-            alert(`игрок загадал: ${playerChoise} \n компьютер загадал: четное число 
-            \n ${playObj.playerWin}`);
-                if(playerCount === 10){
-                    alert(`ИГРОК ПОБЕДИЛ`);
-                    return;
-                } else {
-                    alert(`${playObj.finalScore}`);
-                    return play();
-                };
-
-        } else if ( playerChoise % 2 !== 0 && computerChoise === 1) {
-            playerCount -= playerChoise;
-            computerCount += playerChoise;
-            playObj.computerCount = computerCount;
-            playObj.playerCount = playerCount;
-            alert(`игрок загадал: ${playerChoise} \n компьютер загадал: нечетное число 
-            \n ${playObj.compWin}`);
-                if(computerCount === 10){
-                    alert(`КОМПЬЮТЕР ПОБЕДИЛ`);
-                    return;
-                } else {
-                    alert(`${playObj.finalScore}`);
-                    return play();
-                };
-            };       
+                        return;
+                    };   
+                };   
+            return play();
+                
     };
 
 };
