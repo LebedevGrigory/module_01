@@ -32,10 +32,21 @@ const game = () => {
         let playerChoise = +player;
         let computerChoise = compGuess();
 
-        if (playerChoise === 0 || playerChoise > gameObj.playerCount || isNaN(playerChoise) || playerChoise === ''){
+        if (playerChoise > gameObj.playerCount || isNaN(playerChoise) || playerChoise === ''){
              alert(`${playObj.gameError}`);
              return play();    
         };
+
+        if(playerChoise === 0) {
+            let question = confirm ('Уже уходите?');
+            if(question === true){
+              alert('До новых встреч!');  
+              return;
+            } else {
+              return play();
+            }  
+          };
+
 
         if (playerChoise > playObj.computerCount) {
             alert('Невозможно сделать ставку, у компьютера нет столько шариков')
