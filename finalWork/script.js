@@ -28,16 +28,22 @@ const game = () => {
     const playObj = gameObj;
 
     return function play () {
-        let player = prompt('Загадайте колличество шариков');
+        let player = prompt(`На сколько шариков вы хотите поиграть? \n У вас ${playObj.playerCount}`);
         let playerChoise = +player;
         let computerChoise = compGuess();
 
-        if (playerChoise > gameObj.playerCount || isNaN(playerChoise) || playerChoise === ''){
-             alert(`${playObj.gameError}`);
-             return play();    
+        if(playerChoise > gameObj.playerCount) {
+           alert('У вас нет столько шариков!');
+           return play();
         };
 
-        if(playerChoise === 0) {
+        if (isNaN(playerChoise)) {
+            alert('Вы ввели не число!');
+            return play();
+        };
+
+       
+        if( playerChoise === 0 ) {
             let question = confirm ('Уже уходите?');
             if(question === true){
               alert('До новых встреч!');  
